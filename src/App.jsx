@@ -5,7 +5,22 @@ import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
-
+  const countStyle = {
+    fontSize: '2rem',
+    margin: '20px 0'
+  }
+  const buttonContainerStyle = {
+    display: 'flex',
+    gap: '10px',
+    justifyContent: 'center'
+  }
+  const buttonStyle = {
+    backgroundColor: '#007bff',
+    color: '#fff',
+    border: 'none',
+    padding: '10px 20px',
+    borderRadius: '5px',
+  } 
   return (
     <>
       <div>
@@ -18,14 +33,14 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <div style={{ fontSize: '2rem', margin: '20px 0' }}>
+        <div style={countStyle}>
           Count: {count}
         </div>
-        <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
-          <button onClick={() => setCount((count) => count - 1)}>
+        <div style={buttonContainerStyle}>
+          <button style={buttonStyle} onClick={() => setCount((count) => count - 1)}>
             -
           </button>
-          <button onClick={() => setCount((count) => count + 1)}>
+          <button style={buttonStyle} onClick={() => setCount((count) => count + 1)}>
             +
           </button>
         </div>
