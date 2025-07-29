@@ -2,9 +2,23 @@ import reactLogo from '../assets/react.svg'
 import viteLogo from '/vite.svg'
 
 function Header() {
+  const titleStyle = {
+    fontSize: '1.8rem',
+    fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+    fontWeight: '600',
+    color: '#334155',
+    marginTop: '1rem'
+  }
+
+  const logoContainerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '24px'
+  }
+
   return (
     <>
-      <div>
+      <div style={logoContainerStyle}>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -12,7 +26,7 @@ function Header() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
+      <h1 style={titleStyle}>Vite + React</h1>
     </>
   )
 }
