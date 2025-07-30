@@ -36,10 +36,10 @@ function Counter() {
       </div>
       <div style={buttonContainerStyle}>
         <Button onClick={handleClickMinus}>
-          −
+          <span style={{ fontSize: '1.5rem', color: '#334155', fontWeight: 'bold' }}>−</span>
         </Button>
         <Button onClick={handleClickPlus}>
-          +
+          <span style={{ fontSize: '1.5rem', color: '#334155', fontWeight: 'bold' }}>+</span>
         </Button>
       </div>
     </div>
