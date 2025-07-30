@@ -1,5 +1,8 @@
 import { useState } from 'react'
 import './App.css'
+import TaskInput from './components/TaskInput'
+import TaskList from './components/TaskList'
+import TaskCounter from './components/TaskCounter'
 
 function App() {
   const [tasks, setTasks] = useState([])
@@ -45,52 +48,26 @@ function App() {
     setTasks([])
   }
 
-  const handleKeyPress = (event) => {
-    if (event.key === 'Enter') {
-      addTask()
-    }
-  }
-
   return (
     <div className="container">
       <h1>할 일 목록</h1>
-      <div>
-        <select 
-          value={priority}
-          onChange={(e) => setPriority(e.target.value)}
-        >
-          <option value="low">낮음</option>
-          <option value="high">높음</option>
-        </select>
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="할 일을 입력하세요"
-          onKeyPress={handleKeyPress}
-        />
-        <button onClick={addTask}>추가</button>
-        <button onClick={clearAllTasks}>전체 삭제</button>
-      </div>
-      <div id="taskCount">현재 할 일: <span>{tasks.length}</span>개</div>
-      <ul>
-        {tasks.map(task => (
-          <li key={task.id} className="task-item">
-            <span
-              onClick={() => toggleTask(task.id)}
-              className={`${task.completed ? 'completed' : ''} ${task.priority === 'high' ? 'f-red' : ''}`}
-            >
-              {task.text}
-            </span>
-            <button
-              className="delete-button"
-              onClick={() => deleteTask(task.id)}
-            >
-              삭제
-            </button>
-          </li>
-        ))}
-      </ul>
+      
+      <TaskInput
+        inputValue={inputValue}
+        setInputValue={setInputValue}
+        priority={priority}
+        setPriority={setPriority}
+        onAddTask={addTask}
+        onClearAllTasks={clearAllTasks}
+      />
+      
+      <TaskCounter count={tasks.length} />
+      
+      <TaskList
+        tasks={tasks}
+        onToggleTask={toggleTask}
+        onDeleteTask={deleteTask}
+      />
     </div>
   )
 }
