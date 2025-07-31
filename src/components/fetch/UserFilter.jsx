@@ -1,20 +1,26 @@
 function UserFilter({ userIdFilter, onFilterChange, totalPosts, filteredCount }) {
+  // 사용자 ID 옵션 생성 (1-10)
+  const userOptions = Array.from({ length: 10 }, (_, i) => i + 1)
+
   return (
     <div className="user-filter">
       <div className="filter-container">
-        <label htmlFor="userIdInput" className="filter-label">
-          사용자 ID로 필터링:
+        <label htmlFor="userIdSelect" className="filter-label">
+          사용자 필터:
         </label>
-        <input
-          id="userIdInput"
-          type="number"
+        <select
+          id="userIdSelect"
           value={userIdFilter}
           onChange={(e) => onFilterChange(e.target.value)}
-          placeholder="사용자 ID 입력 (1-10)"
-          min="1"
-          max="10"
-          className="filter-input"
-        />
+          className="filter-select"
+        >
+          <option value="">전체 사용자</option>
+          {userOptions.map(userId => (
+            <option key={userId} value={userId}>
+              사용자 {userId}
+            </option>
+          ))}
+        </select>
         <button 
           onClick={() => onFilterChange('')}
           className="clear-button"

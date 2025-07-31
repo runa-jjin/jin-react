@@ -1,10 +1,16 @@
 import PostCard from './PostCard'
-import Loading from './Loading'
+import SkeletonCard from './SkeletonCard'
 import ErrorMessage from './ErrorMessage'
 
-function PostList({ posts, loading, error }) {
+function PostList({ posts, loading, error, searchTerm, highlightEnabled }) {
   if (loading) {
-    return <Loading />
+    return (
+      <div className="posts-grid">
+        {Array.from({ length: 6 }, (_, index) => (
+          <SkeletonCard key={index} />
+        ))}
+      </div>
+    )
   }
 
   if (error) {
@@ -14,7 +20,12 @@ function PostList({ posts, loading, error }) {
   return (
     <div className="posts-grid">
       {posts.map(post => (
-        <PostCard key={post.id} post={post} />
+        <PostCard 
+          key={post.id} 
+          post={post} 
+          searchTerm={searchTerm}
+          highlightEnabled={highlightEnabled}
+        />
       ))}
     </div>
   )
