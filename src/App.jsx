@@ -3,17 +3,27 @@ import './App.css'
 import Header from './components/fetch/Header'
 import PostList from './components/fetch/PostList'
 import UserFilter from './components/fetch/UserFilter'
+import Pagination from './components/fetch/Pagination'
 
 function App() {
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
   const [userIdFilter, setUserIdFilter] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
+  
+  const itemsPerPage = 6
 
   // 필터링된 포스트 계산
   const filteredPosts = userIdFilter 
     ? posts.filter(post => post.userId === parseInt(userIdFilter))
     : posts
+
+  // 페이징 계산
+  const totalPages = Math.ceil(filteredPosts.length / itemsPerPage)
+  const startIndex = (currentPage - 1) * itemsPerPage
+  const endIndex = startIndex + itemsPerPage
+  const currentPosts = filteredPosts.slice(startIndex, endIndex)
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -38,6 +48,13 @@ function App() {
 
   const handleFilterChange = (value) => {
     setUserIdFilter(value)
+    setCurrentPage(1) // 필터 변경시 첫 페이지로 이동
+  }
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page)
+    // 페이지 변경시 스크롤을 맨 위로 이동
+    window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   return (
@@ -52,7 +69,17 @@ function App() {
           filteredCount={filteredPosts.length}
         />
         
-        <PostList posts={filteredPosts} loading={loading} error={error} />
+        <PostList posts={currentPosts} loading={loading} error={error} />
+        
+        {!loading && !error && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            itemsPerPage={itemsPerPage}
+            totalItems={filteredPosts.length}
+          />
+        )}
       </main>
     </div>
   )
