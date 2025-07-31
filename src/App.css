@@ -43,6 +43,77 @@ body {
   margin-bottom: 40px;
 }
 
+/* 사용자 필터 스타일 */
+.user-filter {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e9ecef;
+}
+
+.filter-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.filter-label {
+  font-weight: 600;
+  color: #2c3e50;
+  font-size: 0.95em;
+}
+
+.filter-input {
+  padding: 10px 15px;
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  font-size: 0.95em;
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.filter-input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.clear-button {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clear-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.clear-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.filter-result {
+  margin-top: 15px;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #667eea15, #764ba215);
+  border-radius: 8px;
+  color: #5a67d8;
+  font-weight: 500;
+  font-size: 0.9em;
+  border-left: 4px solid #667eea;
+}
+
 .posts-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -148,6 +219,15 @@ body {
     font-size: 2em;
   }
   
+  .filter-container {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-input {
+    min-width: auto;
+  }
+  
   .posts-grid {
     grid-template-columns: 1fr;
     gap: 15px;
@@ -169,5 +249,9 @@ body {
   
   .post-title {
     font-size: 1.1em;
+  }
+  
+  .user-filter {
+    padding: 15px;
   }
 }
