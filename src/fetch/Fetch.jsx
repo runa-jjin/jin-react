@@ -1,11 +1,11 @@
 import { useState, useEffect, useCallback } from 'react'
-import './App.css'
-import Header from './components/fetch/Header'
-import PostList from './components/fetch/PostList'
-import UserFilter from './components/fetch/UserFilter'
-import SearchFilter from './components/fetch/SearchFilter'
-import RefreshControl from './components/fetch/RefreshControl'
-import Pagination from './components/fetch/Pagination'
+import './Fetch.css'
+import Header from '../components/fetch/Header'
+import PostList from '../components/fetch/PostList'
+import UserFilter from '../components/fetch/UserFilter'
+import SearchFilter from '../components/fetch/SearchFilter'
+import RefreshControl from '../components/fetch/RefreshControl'
+import Pagination from '../components/fetch/Pagination'
 
 function Fetch() {
   const [posts, setPosts] = useState([])
