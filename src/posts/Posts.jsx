@@ -75,7 +75,7 @@ function Posts() {
   const handlePageChange = (page) => {
     setCurrentPage(page)
     // 페이지 변경시 스크롤을 맨 위로 이동
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    // window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
   const handleRefresh = () => {

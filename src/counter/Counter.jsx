@@ -3,8 +3,10 @@ import './Counter.css'
 import TaskInput from '../components/counter/TaskInput'
 import TaskList from '../components/counter/TaskList'
 import TaskCounter from '../components/counter/TaskCounter'
+import { useNavigate } from 'react-router'
 
 function Counter() {
+  const navigate = useNavigate()
   const [tasks, setTasks] = useState([])
   const [inputValue, setInputValue] = useState('')
   const [priority, setPriority] = useState('low')
@@ -48,9 +50,15 @@ function Counter() {
     setTasks([])
   }
 
+  const moveToPosts = () => {
+    alert('게시판으로 이동합니다.');
+    navigate('/posts');
+  }
+
   return (
     <div className="container">
       <h1>할 일 목록</h1>
+      <button onClick={moveToPosts}>게시판으로 이동</button>
       
       <TaskInput
         inputValue={inputValue}
