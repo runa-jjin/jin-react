@@ -11,7 +11,8 @@ function App() {
         <Route path="/" element={<h1>Home</h1>} />
         <Route path="/about" element={<h1>About</h1>} />
         <Route path="/counter" element={<Counter />} />
-        <Route path="/fetch" element={<Fetch />} />
+        <Route path="/posts" element={<Fetch />} />
+        <Route path="/posts/:id" element={<h1>fetch 상세화면</h1>} />
       </Routes>
     </>
   )
