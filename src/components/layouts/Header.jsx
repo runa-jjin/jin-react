@@ -9,9 +9,9 @@ function Header() {
     }}>
       <nav>
         <Link to="/" style={{ marginRight: '1rem' }}>Home</Link>
-        <Link to="/about" style={{ marginRight: '1rem' }}>About</Link>
+        <Link to="/info/about" style={{ marginRight: '1rem' }}>About</Link>
         <Link to="/posts" style={{ marginRight: '1rem' }}>Posts</Link>
-        <Link to="/counter" style={{ marginRight: '1rem' }}>Counter</Link>
+        <Link to="/info/counter" style={{ marginRight: '1rem' }}>Counter</Link>
       </nav>
     </header>
   )

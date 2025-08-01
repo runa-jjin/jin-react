@@ -5,6 +5,7 @@ import Post from './posts/Post'
 import Counter from './counter/Counter'
 import BasicLayout from './components/layouts/BasicLayout'
 import PostLayout from './components/layouts/PostLayout'
+import NotFound from './components/NotFound'
 
 function App() {
   return (
@@ -12,10 +13,10 @@ function App() {
       {/* 레이아웃 없는 홈 페이지 */}
       <Route path="/" element={<HomePage />} />
       
-      {/* BasicLayout을 사용하는 페이지들 */}
-      <Route element={<BasicLayout />}>
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/counter" element={<Counter />} />
+      {/* BasicLayout을 사용하는 /info 하위 페이지들 */}
+      <Route path="/info" element={<BasicLayout />}>
+        <Route path="about" element={<AboutPage />} />
+        <Route path="counter" element={<Counter />} />
       </Route>
       
       {/* PostLayout을 사용하는 페이지들 */}
@@ -23,6 +24,9 @@ function App() {
         <Route index element={<Posts />} />
         <Route path=":id" element={<Post />} />
       </Route>
+
+      <Route path="*" element={<NotFound />} />
+
     </Routes>
   )
 }
@@ -40,9 +44,9 @@ function HomePage() {
       <h1>Welcome to My App</h1>
       <p>This is the home page without any layout.</p>
       <nav style={{ marginTop: '2rem' }}>
-        <Link to="/about" style={{ marginRight: '1rem' }}>About</Link>
+        <Link to="/info/about" style={{ marginRight: '1rem' }}>About</Link>
+        <Link to="/info/counter" style={{ marginRight: '1rem' }}>Counter</Link>
         <Link to="/posts" style={{ marginRight: '1rem' }}>Posts</Link>
-        <Link to="/counter" style={{ marginRight: '1rem' }}>Counter</Link>
       </nav>
     </div>
   )
