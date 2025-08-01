@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import './Counter.css'
-import TaskInput from './components/TaskInput'
-import TaskList from './components/TaskList'
-import TaskCounter from './components/TaskCounter'
+import TaskInput from '../components/counter/TaskInput'
+import TaskList from '../components/counter/TaskList'
+import TaskCounter from '../components/counter/TaskCounter'
 
 function Counter() {
   const [tasks, setTasks] = useState([])
@@ -72,4 +72,4 @@ function Counter() {
   )
 }
 
-export default App
+export default Counter
