@@ -1,5 +1,5 @@
 import './App.css'
-import { Routes, Route, Link } from 'react-router'
+import { Routes, Route, Link, useLocation } from 'react-router'
 import Posts from './posts/Posts'
 import Post from './posts/Post'
 import Counter from './counter/Counter'
@@ -17,6 +17,7 @@ function App() {
       <Route path="/info" element={<BasicLayout />}>
         <Route path="about" element={<AboutPage />} />
         <Route path="counter" element={<Counter />} />
+        <Route path="location" element={<LocationPage />} />
       </Route>
       
       {/* PostLayout을 사용하는 페이지들 */}
@@ -57,6 +58,23 @@ function AboutPage() {
     <div>
       <h1>About</h1>
       <p>This page uses BasicLayout with header and footer.</p>
+    </div>
+  )
+}
+
+function LocationPage() {
+  const location = useLocation()
+  return (
+    <div>
+      <h1>Location</h1>
+      <p>Current location: {location.pathname}</p>
+      <p>Current search: {location.search}</p>
+      <p>Current hash: {location.hash}</p>
+      <p>Current state: {JSON.stringify(location.state)}</p>
+      <p>Current key: {location.key}</p>
+      <p>Current pathname: {location.pathname}</p>
+      <p>Current search: {location.search}</p>
+      <p>Current hash: {location.hash}</p>
     </div>
   )
 }
