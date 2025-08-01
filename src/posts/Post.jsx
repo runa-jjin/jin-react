@@ -3,7 +3,7 @@ import { useParams, Link } from 'react-router'
 import './Post.css'
 
 const Post = () => {
-  const { id } = useParams()
+  const { postId } = useParams()
   const [post, setPost] = useState(null)
   const [user, setUser] = useState(null)
   const [comments, setComments] = useState([])
@@ -17,7 +17,7 @@ const Post = () => {
         setError(null)
 
         // 포스트 상세 정보 가져오기
-        const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        const postResponse = await fetch(`https://jsonplaceholder.typicode.com/posts/${postId}`)
         if (!postResponse.ok) {
           throw new Error('포스트를 찾을 수 없습니다.')
         }
@@ -27,7 +27,7 @@ const Post = () => {
         // 사용자 정보와 댓글을 병렬로 가져오기
         const [userResponse, commentsResponse] = await Promise.all([
           fetch(`https://jsonplaceholder.typicode.com/users/${postData.userId}`),
-          fetch(`https://jsonplaceholder.typicode.com/posts/${id}/comments`)
+          fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
         ])
 
         if (!userResponse.ok) {
@@ -49,10 +49,10 @@ const Post = () => {
       }
     }
 
-    if (id) {
+    if (postId) {
       fetchPostData()
     }
-  }, [id])
+  }, [postId])
 
   if (loading) {
     return (

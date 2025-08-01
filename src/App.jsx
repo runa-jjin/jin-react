@@ -23,7 +23,10 @@ function App() {
       {/* PostLayout을 사용하는 페이지들 */}
       <Route path="/posts" element={<PostLayout />}>
         <Route index element={<Posts />} />
-        <Route path=":id" element={<Post />} />
+        {/* <Route path="new" element={<NewPost />} />
+        <Route path="edit/:postId" element={<EditPost />} /> */}
+        <Route path=":postId" element={<Post />} />
+        {/* <Route path=":postId/comments/:commentId" element={<Comments />} /> */}
       </Route>
 
       <Route path="*" element={<NotFound />} />
