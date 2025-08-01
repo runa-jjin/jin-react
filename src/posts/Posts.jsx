@@ -1,13 +1,13 @@
 import { useState, useEffect, useCallback } from 'react'
-import './Fetch.css'
-import Header from '../components/fetch/Header'
-import PostList from '../components/fetch/PostList'
-import UserFilter from '../components/fetch/UserFilter'
-import SearchFilter from '../components/fetch/SearchFilter'
-import RefreshControl from '../components/fetch/RefreshControl'
-import Pagination from '../components/fetch/Pagination'
+import './Posts.css'
+import Header from '../components/posts/Header'
+import PostList from '../components/posts/PostList'
+import UserFilter from '../components/posts/UserFilter'
+import SearchFilter from '../components/posts/SearchFilter'
+import RefreshControl from '../components/posts/RefreshControl'
+import Pagination from '../components/posts/Pagination'
 
-function Fetch() {
+function Posts() {
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -137,4 +137,4 @@ function Fetch() {
   )
 }
 
-export default Fetch
+export default Posts
