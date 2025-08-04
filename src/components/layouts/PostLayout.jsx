@@ -5,22 +5,14 @@ import SideNavigation from './SideNavigation'
 
 function PostLayout() {
   return (
-    <div style={{ 
-      minHeight: '100vh', 
-      display: 'flex', 
-      flexDirection: 'column' 
-    }}>
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <Header />
-      <div style={{ 
-        flex: 1, 
-        display: 'flex' 
-      }}>
+      <div className="flex-1 flex">
         <SideNavigation />
-        <main style={{ 
-          flex: 1, 
-          padding: '2rem' 
-        }}>
-          <Outlet />
+        <main className="flex-1 p-6 sm:p-8">
+          <div className="max-w-7xl mx-auto">
+            <Outlet />
+          </div>
         </main>
       </div>
       <Footer />

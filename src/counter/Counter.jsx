@@ -56,15 +56,12 @@ function Counter() {
 
   return (
     <div className="max-w-2xl w-11/12 mx-auto my-5 bg-white p-8 rounded-2xl shadow-xl border border-gray-200">
-      <h1 className="text-slate-700 text-center mb-6 font-semibold text-2xl">할 일 목록</h1>
-      <div className="bg-blue-100 p-2 mb-4 rounded text-center text-sm text-blue-800">
-        🎨 Tailwind CSS 테스트: 이 박스가 파란색 배경으로 보이면 정상 작동 중입니다!
-      </div>
+      <h1 className="text-slate-700 text-center mb-6 font-semibold text-2xl">✅ 할 일 목록</h1>
       <button 
         onClick={moveToPosts}
-        className="w-full mb-4 px-4 py-2 bg-blue-500 text-white rounded-lg text-base font-medium hover:bg-blue-600 active:translate-y-px transition-all duration-200"
+        className="w-full mb-6 px-4 py-3 bg-blue-500 text-white rounded-lg text-base font-medium hover:bg-blue-600 active:translate-y-px transition-all duration-200"
       >
-        게시판으로 이동
+        📋 게시판으로 이동
       </button>
       
       <TaskInput
