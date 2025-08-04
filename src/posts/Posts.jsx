@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react'
-import './Posts.css'
+// import './Posts.css'
 import Header from '../components/posts/Header'
 import PostList from '../components/posts/PostList'
 import UserFilter from '../components/posts/UserFilter'

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router'
-import './Post.css'
+// import './Post.css'
 
 const Post = () => {
   const { postId } = useParams()
