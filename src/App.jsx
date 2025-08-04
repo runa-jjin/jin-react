@@ -46,8 +46,11 @@ function HomePage() {
       textAlign: 'center'
     }}>
       <h1>Welcome to My App</h1>
+      <h1 className="text-3xl font-bold">
+        Hello world!
+      </h1>
       <p>This is the home page without any layout.</p>
-      <nav style={{ marginTop: '2rem' }}>
+      <nav className="mt-4">
         <Link to="/info/about" style={{ marginRight: '1rem' }}>About</Link>
         <Link to="/info/counter" style={{ marginRight: '1rem' }}>Counter</Link>
         <Link to="/posts" style={{ marginRight: '1rem' }}>Posts</Link>
